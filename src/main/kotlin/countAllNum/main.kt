@@ -1,5 +1,0 @@
-package countAllNum
-
-fun main() {
-
-}
