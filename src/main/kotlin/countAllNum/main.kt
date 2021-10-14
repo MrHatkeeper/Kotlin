@@ -1,0 +1,5 @@
+package countAllNum
+
+fun main() {
+
+}
