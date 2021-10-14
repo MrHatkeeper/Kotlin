@@ -1,8 +1,8 @@
 package countOnIn
 
 fun main(){
-    var large = 0;
-    var small = 0;
+    var large = 0
+    var small = readLine()!!.toInt()
 
     while(true){
         val num = readLine()?.toInt()
@@ -12,7 +12,6 @@ fun main(){
         if(num < small){
             small = num
         }
+        println("biggest = $large smallest = $small")
     }
-    println("biggest = $large smallest = $small");
-
 }
