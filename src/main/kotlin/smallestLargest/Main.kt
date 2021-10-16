@@ -1,4 +1,4 @@
-package countOnIn
+package smallestLargest
 
 fun main(){
     var large = 0
