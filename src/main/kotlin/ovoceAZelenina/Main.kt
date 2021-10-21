@@ -22,19 +22,17 @@ fun main(){
     while (true) {
         println("Co hledáš")
         val search = readLine()!!
-        if (search == "END") {
-            break
-        }
-        for (s in ovoce) {
-            if (search == s) {
+        if (search == "END") break
+
+        when (search) {
+            in ovoce -> {
                 println("Je to ovoce")
-                break
             }
-        }
-        for (s in zelenina) {
-            if (search == s) {
+            in zelenina -> {
                 println("Je to zelenina")
-                break
+            }
+            else -> {
+                println("NIC NEJSI... JSI JENOM CHYBA V SYSTÉMU, KTERÁ NIKDY NEBUDE MÍT VYUŽITÍ...")
             }
         }
     }
