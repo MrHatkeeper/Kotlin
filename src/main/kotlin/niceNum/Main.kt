@@ -1,18 +1,20 @@
 package niceNum
 
-fun main(){
-    coolNum(readLine()!!.toInt())
+fun main() {
+    val input = readLine()!!.toInt()
+
+    for (i in 1..input) {
+        if(coolNums(i)) println(i)
+    }
+
 }
 
-
-fun coolNum(num: Int){
-    for(i in 0..num){
-        var count = 0
-        for(j in 1 until num){
-            if(i % j == 0){
-                count += j
-            }
+fun coolNums(num: Int): Boolean {
+    var check = 0
+    for (i in 1 until num) {
+        if (num % i == 0){
+            check += i
         }
-        println(count)
     }
+    return check == num
 }
