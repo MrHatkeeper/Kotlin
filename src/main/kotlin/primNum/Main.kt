@@ -1,14 +1,20 @@
 package primNum
 
-fun main(){
-    val input = readLine()!!.toInt()
-    prime(input)
+fun main() {
+    val num = readLine()!!.toInt()
 
+    for (i in 2..num) {
+        if (primNum(i))
+            println("$i")
+
+    }
 }
 
-fun prime(num: Int) : Int{
-    for(i in 2..num / 2){
-        if(num % i == 0) println(i)
+fun primNum(num: Int): Boolean {
+    for (i in 2..num / 2) {
+        if (num % i == 0) {
+            return false
+        }
     }
-    return -1
+    return true
 }
