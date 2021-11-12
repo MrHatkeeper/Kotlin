@@ -13,7 +13,7 @@ fun moonWalkingNums(num: String): Boolean {
     for (i in num.indices){
         var mezi = 1
         for (j in num.indices){
-            mezi *= Character.getNumericValue(num[i])
+            mezi *= num[i].digitToInt()
         }
         output += mezi
     }
