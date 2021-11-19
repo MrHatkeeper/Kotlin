@@ -15,7 +15,7 @@ fun main() {
             var temporarySumNull = 0
             for (j in (i - 2)..i + 2) {
                 if (j != i) {
-                    if (j != -1) temporarySumNull += inputs[j]!!
+                    if (j >= 0 && j < inputs.size) temporarySumNull += inputs[j]!!
                 }
             }
             inputs[i] = kotlin.math.ceil(temporarySumNull / 4.0).toInt()
