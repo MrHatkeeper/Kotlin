@@ -22,5 +22,5 @@ fun main() {
         } else sumAllNumbers += inputs[i]!!
     }
 
-    println(inputs)
+    println(inputs.average())
 }
