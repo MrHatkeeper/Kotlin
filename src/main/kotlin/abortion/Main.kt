@@ -12,15 +12,17 @@ fun main() {
 
     for (i in inputs.indices) {
         if (inputs[i] == null) {
-            var temporaryCountNull = 0
+            var temporarySumNull = 0
             for (j in (i - 2)..i + 2) {
                 if (j != i) {
-                    if (j != -1) temporaryCountNull += inputs[j]!!
+                    if (j != -1) temporarySumNull += inputs[j]!!
                 }
             }
-            inputs[i] = kotlin.math.ceil(temporaryCountNull / 4.0).toInt()
-        } else sumAllNumbers += inputs[i]!!
+            inputs[i] = kotlin.math.ceil(temporarySumNull / 4.0).toInt()
+        }
+        sumAllNumbers += inputs[i]!!
     }
 
-    println(inputs.average())
+    println(inputs)
+    println(sumAllNumbers/inputs.size)
 }
