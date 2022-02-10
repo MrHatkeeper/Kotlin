@@ -23,11 +23,11 @@ internal class MainKtTest {
 
     @Test
     fun sumNumsTest(){
-        assertTrue("253" == sumNums("2","53"))
+        assertEquals("253", sumNums("2","53"))
     }
 
     @Test
     fun palindromeTest(){
-        assertTrue("UwU" == palindrome("UwU"))
+        assertEquals("UwU", palindrome("UwU"))
     }
 }
