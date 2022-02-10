@@ -1,12 +1,5 @@
 package rekurze
 
-fun main() {
-    println(sumNums("2","53"))
-}
-
-
-
-
 fun add(requiredNum: Int, num: Int = 1): Int {
     return if (requiredNum != num) add(requiredNum, num + 1)
     else return num
