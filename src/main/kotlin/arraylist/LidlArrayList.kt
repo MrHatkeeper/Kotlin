@@ -1,8 +1,6 @@
 package arraylist
 
-class LidlArrayList(
-    private var numbers: IntArray
-) {
+class LidlArrayList<T>(private var numbers: Array<T>) {
 
 
     fun size(): Int {
@@ -13,42 +11,41 @@ class LidlArrayList(
         return numbers.isEmpty()
     }
 
-    fun indexOf(number: Int): Int {
+    fun indexOf(number: T): Int {
         for (i in numbers.indices) {
             if (numbers[i] == number) return i
         }
         return -1
     }
 
-    fun toArray(): IntArray {
+    fun toArray(): Array<T> {
         return numbers
     }
 
-    fun get(pos: Int): Int {
+    fun get(pos: Int): T {
         return if (pos < numbers.size) numbers[pos]
-        else -1
+        else throw Exception("lmao není")
     }
 
-    fun add(num: Int) {
-        val newArr = numbers.copyOf(numbers.size + 1)
-        newArr[newArr.size-1] = num
+    fun add(num: T) {
+        val newArr = numbers + num
         numbers = newArr
     }
 
-    fun set(pos: Int,num: Int){
+    fun set(pos: Int, num: T) {
         numbers[pos] = num
     }
 
-    fun contains(num: Int): Boolean {
-        for (i in numbers.indices){
-            if(numbers[i] == num ) return true
+    fun contains(num: T): Boolean {
+        for (i in numbers.indices) {
+            if (numbers[i] == num) return true
         }
         return false
     }
 
-    fun lastIndexOf(num: Int): Int{
-        for(i in numbers.size-1 downTo 0)
-            if(numbers[i] == num){
+    fun lastIndexOf(num: T): Int {
+        for (i in numbers.size - 1 downTo 0)
+            if (numbers[i] == num) {
                 return i
             }
         return -1
