@@ -1,7 +1,7 @@
 package hashish
 
 class Hash<T> {
-    var hash = hashSetOf(mutableListOf<T>(), mutableListOf())
+    var hash = Array(2){mutableListOf<T>()}
 
 
     fun add(value: T): Boolean {
