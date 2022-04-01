@@ -8,10 +8,10 @@ class Hash<T> {
         if (!has(value)) {
             when (value.hashCode() % 2) {
                 0 -> {
-                    if(hash.elementAt(0).add(value)) return true
+                    if(hash[0].add(value)) return true
                 }
                 else -> {
-                    if(hash.elementAt(1).add(value)) return true
+                    if(hash[1].add(value)) return true
                 }
             }
         }
@@ -21,10 +21,10 @@ class Hash<T> {
     fun has(value: T): Boolean {
         when (value.hashCode() % 2) {
             0 -> {
-                if(hash.elementAt(0).contains(value)) return true
+                if(hash[0].contains(value)) return true
             }
             else -> {
-                if(hash.elementAt(1).contains(value)) return true
+                if(hash[1].contains(value)) return true
             }
         }
         return false
