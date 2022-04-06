@@ -31,7 +31,7 @@ class Hash<T> {
     }
 
     fun delete(value: T): Boolean {
-        if (!has(value)) {
+        if (has(value)) {
             when (value.hashCode() % 2) {
                 0 -> {
                     if(hash.elementAt(0).remove(value)) return true
@@ -45,7 +45,7 @@ class Hash<T> {
     }
 
     fun size(): Int {
-        return (hash.elementAt(0).size + hash.elementAt(1).size)
+        return (hash[0].size + hash[1].size)
     }
 
     fun iterator(value: T) {

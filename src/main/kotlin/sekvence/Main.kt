@@ -10,7 +10,7 @@ fun main() {
 }
 
 
-fun primeNumsIn100(max: Int) = sequence<Int> {
+fun primeNumsIn100(max: Int) = sequence {
     for (v in 2..max) {
         if (primeNumsCalcu(v)) {
             yield(v)
@@ -27,7 +27,7 @@ fun primeNumsCalcu(value: Int): Boolean {
     return true
 }
 
-fun primeNumsTill100(max: Int) = sequence<Int> {
+fun primeNumsTill100(max: Int) = sequence {
     var count = 0
     var v = 2
     while(count < max){

@@ -4,6 +4,9 @@ fun main(){
     val idk = Hash<Int>()
 
     idk.add(5)
-    println(idk.hash.elementAt(0))
+    idk.add(2)
+    println(idk.hash[0])
+    println(idk.hash[1])
+    println(idk.size())
 
 }
