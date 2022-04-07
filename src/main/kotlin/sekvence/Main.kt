@@ -1,42 +1,40 @@
 package sekvence
 
 fun main() {
-    for (i in primeNumsIn100(100)) {
-        println(i)
+    var max = 0
+    for (i in primeNumsTo100()) {
+        max += 1
+        if (i != -1) {
+            print("$i ")
+        }
+        if(max == 100) break
     }
-    for (i in primeNumsTill100(100)){
-        println(i)
+    max = 0
+    println()
+    for (i in primeNumsTo100()) {
+        if (i != -1) {
+            max += 1
+            print("$i ")
+        }
+        if(max == 100) break
     }
 }
 
 
-fun primeNumsIn100(max: Int) = sequence {
-    for (v in 2..max) {
-        if (primeNumsCalcu(v)) {
-            yield(v)
+fun primeNums(v: Int): Int {
+    for (i in v - 1 downTo 2) {
+        if (v % i == 0) {
+            return -1
         }
     }
+    return v
 }
 
-fun primeNumsCalcu(value: Int): Boolean {
-    for (i in value - 1 downTo 2) {
-        if (value % i == 0) {
-            return false
-        }
-    }
-    return true
-}
 
-fun primeNumsTill100(max: Int) = sequence {
-    var count = 0
-    var v = 2
-    while(count < max){
-        if(primeNumsCalcu(v)){
-            count++
-            yield(v)
-        }
+fun primeNumsTo100() = sequence {
+    var v = 0
+    while (true) {
         v++
+        yield(primeNums(v))
     }
-
 }
-
