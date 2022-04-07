@@ -6,12 +6,14 @@ class Hash<T> {
 
     fun add(value: T): Boolean {
         if (!has(value)) {
-            when (value.hashCode() % 2) {
+            return when (value.hashCode() % 2) {
                 0 -> {
-                    if(hash[0].add(value)) return true
+                    hash[0].add(value)
+                    true
                 }
                 else -> {
-                    if(hash[1].add(value)) return true
+                    hash[1].add(value)
+                    true
                 }
             }
         }
@@ -32,12 +34,14 @@ class Hash<T> {
 
     fun delete(value: T): Boolean {
         if (has(value)) {
-            when (value.hashCode() % 2) {
+            return when (value.hashCode() % 2) {
                 0 -> {
-                    if(hash.elementAt(0).remove(value)) return true
+                    hash.elementAt(0).remove(value)
+                    true
                 }
                 else -> {
-                    if(hash.elementAt(1).remove(value)) return true
+                    hash.elementAt(1).remove(value)
+                    true
                 }
             }
         }
