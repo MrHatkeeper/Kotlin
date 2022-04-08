@@ -15,38 +15,43 @@ fun main(){
 
 data class Zlomek(var firstNum: Int, var secondNumber: Int){
 
-    operator fun plus(secondZlomek: Zlomek): Zlomek{
-        val gcd = this.secondNumber * secondZlomek.secondNumber
-        return Zlomek((this.firstNum *  timesZ(this.secondNumber, gcd)) + (secondZlomek.firstNum * timesZ(secondZlomek.secondNumber, gcd)), gcd)
+    operator fun plus(other: Zlomek): Zlomek{
+        val gcd = this.secondNumber * other.secondNumber
+        return Zlomek((this.firstNum *  divZ(this.secondNumber, gcd)) + (other.firstNum * divZ(other.secondNumber, gcd)), gcd)
     }
 
-    operator fun minus(secondZlomek: Zlomek): Zlomek{
-        val gcd = this.secondNumber * secondZlomek.secondNumber
-        return Zlomek((this.firstNum *  timesZ(this.secondNumber, gcd)) - (secondZlomek.firstNum * timesZ(secondZlomek.secondNumber, gcd)), gcd)
+    operator fun minus(other: Zlomek): Zlomek{
+        val gcd = this.secondNumber * other.secondNumber
+        return Zlomek((this.firstNum *  divZ(this.secondNumber, gcd)) - (other.firstNum * divZ(other.secondNumber, gcd)), gcd)
     }
 
-    operator fun times(secondZlomek: Zlomek): Zlomek{
-        return Zlomek(this.firstNum * secondZlomek.firstNum, this.secondNumber * secondZlomek.secondNumber)
+    operator fun times(other: Zlomek): Zlomek{
+        return Zlomek(this.firstNum * other.firstNum, this.secondNumber * other.secondNumber)
     }
 
-    operator fun div(secondZlomek: Zlomek): Zlomek{
-        val reversedZlomek = Zlomek(secondZlomek.secondNumber, secondZlomek.firstNum)
+    operator fun div(other: Zlomek): Zlomek{
+        val reversedZlomek = Zlomek(other.secondNumber, other.firstNum)
         return Zlomek(this.firstNum * reversedZlomek.firstNum, this.secondNumber * reversedZlomek.secondNumber)
     }
 
-    operator fun compareTo(secondZlomek: Zlomek): Int{
-        val gcd = this.secondNumber * secondZlomek.secondNumber
-        val secondZlomek = Zlomek((secondZlomek.firstNum * timesZ(secondZlomek.secondNumber, gcd)),gcd)
-        val firstZLomek = Zlomek((this.firstNum *  timesZ(this.secondNumber, gcd)),gcd)
+    operator fun compareTo(other: Zlomek): Int{
+        val gcd = this.secondNumber * other.secondNumber
+        val secondZlomek = Zlomek((other.firstNum * divZ(other.secondNumber, gcd)),gcd)
+        val firstZLomek = Zlomek((this.firstNum *  divZ(this.secondNumber, gcd)),gcd)
 
         return if(firstZLomek.firstNum > secondZlomek.firstNum) 1
         else if(firstZLomek.firstNum < secondZlomek.firstNum) -1
         else 0
     }
 
-    private fun timesZ(value: Int, gcd: Int): Int{
+    private fun divZ(value: Int, gcd: Int): Int{
         return gcd/value
     }
+
+    override operator fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
+
 
     fun toDouble(): Double = (firstNum/secondNumber).toDouble()
 
