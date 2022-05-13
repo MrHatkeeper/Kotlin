@@ -8,6 +8,7 @@ fun main(){
     println(numOne/numTwo)
     println(numOne<numTwo)
     println(numOne==numTwo)
+    println(numOne.equals(numTwo))
     println(numOne.toDouble())
 
 }
