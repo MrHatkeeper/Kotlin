@@ -1,12 +1,15 @@
-package testik
+package sekvence
+
+import java.util.LinkedList
 import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
 fun main() {
 
+
     val primes = sequence {
         var v = 2
-        val previousPrimes = mutableListOf<Int>()
+        val previousPrimes = LinkedList<Int>()
         while (true) {
             if (isPrime(v, previousPrimes)) {
                 println("V je $v")
@@ -27,13 +30,10 @@ fun main() {
 
 }
 
+//zjišťuje, zda číslo je prvočíslo nebo ne
+fun isPrime(v: Int, previousPrimes: LinkedList<Int>): Boolean {
 
-fun isPrime(v: Int, previousPrimes: List<Int>): Boolean {
-    for (i in previousPrimes) {
-        val divider = sqrt(i.toDouble()).roundToInt()
-        if (v % divider == 0 && divider != 1) {
-            return false
-        }
-    }
-    return true
+    return  previousPrimes.asSequence()
+        .takeWhile { it <= (sqrt(v.toDouble()).roundToInt())}
+        .none { v % it == 0 }
 }
